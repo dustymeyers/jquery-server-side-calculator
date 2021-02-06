@@ -61,13 +61,21 @@ function calculateOperation(num1, num2, op) {
  *  GET - Endpoints
  */
 app.get('/answer', function (req, res) {
-  res.send('here is your answer!', operationHistory);
+  console.log('GET /answer');
+  // send back the array with past history
+  res.send(operationHistory);
 });
 /*
  *  POST - Endpoints
  */
 app.post('/answer', function (req, res) {
   console.log(operationHistory.length);
+  if (req.body.operation_to_add === undefined) {
+    console.log('Oops, missing operation_to_add');
+    // 400 === You're missing something
+    res.sendStatus(400);
+    return;
+  }
   let operation = req.body.operation_to_add;
   console.log('server received:', operation);
   let firstOperand = Number(operation.firstOperand);
