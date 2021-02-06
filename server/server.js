@@ -83,6 +83,16 @@ app.post('/answer', function (req, res) {
     return;
   }
   let operation = req.body.operation_to_add;
+  if (
+    operation.firstOperand === '' ||
+    operation.secondOperand === '' ||
+    operation.operator === ''
+  ) {
+    console.log('Oops, missing part of the operation');
+    // 400 === You're missing something
+    res.sendStatus(400);
+    return;
+  }
   console.log('server received:', operation);
   let firstOperand = Number(operation.firstOperand);
   let secondOperand = Number(operation.secondOperand);

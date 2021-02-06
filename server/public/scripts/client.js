@@ -43,7 +43,6 @@ function fetchOperations() {
 
 function onSubmit(evt) {
   evt.preventDefault();
-
   // define our object that we are clicking
   let newOperation = {
     firstOperand: $('#first-operand-input').val(),
