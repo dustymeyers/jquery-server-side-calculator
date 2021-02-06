@@ -13,7 +13,9 @@ app.listen(port, function () {
 /*
  *  GET - Endpoints
  */
-
+app.get('/answer', function (req, res) {
+  res.send('here is your answer!');
+});
 /*
  *  POST - Endpoints
  */
