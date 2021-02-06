@@ -37,6 +37,12 @@ const operationHistory = [
     operator: '/',
     solution: 21,
   },
+  {
+    firstOperand: 13,
+    secondOperand: 8,
+    operator: '+',
+    solution: 21,
+  },
 ];
 // calculate data from object sent to server
 // num1 = first operand
