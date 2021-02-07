@@ -92,18 +92,27 @@ function onSubmit() {
     secondOperand: secondOperand,
     operator: currentOperator,
   };
-  $.ajax({
-    data: { operation_to_add: newOperation },
-    method: 'POST',
-    url: '/answer',
-  }).then(function (response) {
-    fetchOperations();
-  });
-  currentOperator = '';
-  firstOperand = '';
-  secondOperand = '';
-  displayOperation = '';
-  console.log('newOperation is', newOperation);
+  // be sure all data has been packed for server properly
+  if (
+    newOperation.firstOperand === '' ||
+    newOperation.secondOperand === '' ||
+    newOperation.currentOperator === ''
+  ) {
+    return alert('Please input proper values.');
+  } else {
+    $.ajax({
+      data: { operation_to_add: newOperation },
+      method: 'POST',
+      url: '/answer',
+    }).then(function (response) {
+      fetchOperations();
+    });
+    currentOperator = '';
+    firstOperand = '';
+    secondOperand = '';
+    displayOperation = '';
+    console.log('newOperation is', newOperation);
+  }
 }
 
 function operationSelector() {
