@@ -20,9 +20,14 @@ function onReady() {
 }
 
 function clearInputs() {
-  $('#first-operand-input').val('');
-  $('#second-operand-input').val('');
+  // basemode
+  // $('#first-operand-input').val('');
+  // $('#second-operand-input').val('');
   currentOperator = '';
+  firstOperand = '';
+  secondOperand = '';
+  displayOperation = '';
+  $('#calculator-input').val('');
 }
 
 function fetchOperations() {
@@ -50,7 +55,25 @@ function fetchOperations() {
 function newOperandConstructor() {
   console.log($(this).data().value);
   let buttonPressed = $(this).data().value;
-  // TODO - Come up with a way to check if a decimal has already been place in side of currentOperand
+  console.log(Number(firstOperand + buttonPressed));
+  // Check both operands to make sure they only have one decimal point
+  if (
+    buttonPressed === '.' &&
+    !Number(firstOperand + buttonPressed) &&
+    currentOperator === ''
+  ) {
+    console.log('too many decimals in firstOperand');
+    return;
+  } else if (
+    buttonPressed === '.' &&
+    !Number(secondOperand + buttonPressed) &&
+    currentOperator !== ''
+  ) {
+    console.log('too many decimals in secondOperand');
+    return;
+  }
+  // Check if the operator has been chosen or not
+  // Signifies which operand to construct
   if (currentOperator !== '') {
     secondOperand += buttonPressed;
     displayOperation += buttonPressed;
@@ -65,8 +88,8 @@ function newOperandConstructor() {
 function onSubmit() {
   // define our object that we are clicking
   let newOperation = {
-    firstOperand: $('#first-operand-input').val(),
-    secondOperand: $('#second-operand-input').val(),
+    firstOperand: firstOperand,
+    secondOperand: secondOperand,
     operator: currentOperator,
   };
   $.ajax({
@@ -76,14 +99,20 @@ function onSubmit() {
   }).then(function (response) {
     fetchOperations();
   });
-
+  currentOperator = '';
+  firstOperand = '';
+  secondOperand = '';
+  displayOperation = '';
   console.log('newOperation is', newOperation);
 }
 
-function operationSelector(evt) {
-  evt.preventDefault();
+function operationSelector() {
   // console.log($(this).data().operation);
   const operatorChosen = $(this).data().operation;
+  if (currentOperator !== '' || firstOperand === '') {
+    return;
+  }
+  // check which data value assigned to operatorChosen
   if (operatorChosen === 'addition') {
     currentOperator = '+';
   } else if (operatorChosen === 'subtraction') {
