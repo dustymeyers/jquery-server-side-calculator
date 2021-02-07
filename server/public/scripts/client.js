@@ -10,10 +10,10 @@ function onReady() {
   $(document).on('click', '#submit-calculation', onSubmit);
   // click event to clear out inputs
   $(document).on('click', '#clear-user-input', clearInputs);
+  // click event for inputting numbers
 }
 
-function clearInputs(evt) {
-  evt.preventDefault;
+function clearInputs() {
   $('#first-operand-input').val('');
   $('#second-operand-input').val('');
   currentOperator = '';
@@ -41,8 +41,7 @@ function fetchOperations() {
   });
 }
 
-function onSubmit(evt) {
-  evt.preventDefault();
+function onSubmit() {
   // define our object that we are clicking
   let newOperation = {
     firstOperand: $('#first-operand-input').val(),
@@ -75,4 +74,3 @@ function operationSelector(evt) {
   }
   console.log(currentOperator);
 }
-// TODO CREATE A FUNCTION TO CLEAR
