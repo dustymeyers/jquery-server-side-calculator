@@ -60,14 +60,16 @@ function newOperandConstructor() {
   if (
     buttonPressed === '.' &&
     !Number(firstOperand + buttonPressed) &&
-    currentOperator === ''
+    currentOperator === '' &&
+    Number(firstOperand)
   ) {
     console.log('too many decimals in firstOperand');
     return;
   } else if (
     buttonPressed === '.' &&
     !Number(secondOperand + buttonPressed) &&
-    currentOperator !== ''
+    currentOperator !== '' &&
+    Number(secondOperand)
   ) {
     console.log('too many decimals in secondOperand');
     return;
