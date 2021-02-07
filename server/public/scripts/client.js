@@ -1,6 +1,11 @@
 $(document).ready(onReady);
-const calculationSubmission = {};
+const postObject = {};
+// stores our chosen operator in the string
 let currentOperator = '';
+// stores our current Operand value in the string
+let firstOperand = '';
+let secondOperand = '';
+let displayOperation = '';
 function onReady() {
   console.log('I am so ready');
   // fetchOperations('');
@@ -11,6 +16,7 @@ function onReady() {
   // click event to clear out inputs
   $(document).on('click', '#clear-user-input', clearInputs);
   // click event for inputting numbers
+  $(document).on('click', '.number-button', newOperandConstructor);
 }
 
 function clearInputs() {
@@ -39,6 +45,21 @@ function fetchOperations() {
     $('#answer-output').empty();
     $('#answer-output').append(lastSolution);
   });
+}
+
+function newOperandConstructor() {
+  console.log($(this).data().value);
+  let buttonPressed = $(this).data().value;
+  // TODO - Come up with a way to check if a decimal has already been place in side of currentOperand
+  if (currentOperator !== '') {
+    secondOperand += buttonPressed;
+    displayOperation += buttonPressed;
+    $('#calculator-input').val(displayOperation);
+  } else {
+    firstOperand += buttonPressed;
+    $('#calculator-input').val(firstOperand);
+  }
+  console.log('currentOperator is now,', firstOperand);
 }
 
 function onSubmit() {
@@ -72,5 +93,7 @@ function operationSelector(evt) {
   } else if (operatorChosen === 'division') {
     currentOperator = '/';
   }
+  displayOperation = firstOperand + currentOperator;
+  $('#calculator-input').val(displayOperation);
   console.log(currentOperator);
 }
