@@ -2,30 +2,30 @@
 
 ## Client Side
 
-- [ ] 2 separate inputs for number values
-- [ ] inputs, selectors or buttons for each math operator
+- [x] 2 separate inputs for number values
+- [x] inputs, selectors or buttons for each math operator
   - +, -, /, \*,
-- [ ] submit button (=)
-  - [ ] bundle up data, including "method" for math
-  - [ ] send it server side - POST
-- [ ] clear button to clear out the input fields (C)
+- [x] submit button (=)
+  - [x] bundle up data, including "method" for math
+  - [x] send it server side - POST
+- [x] clear button to clear out the input fields (C)
 
 ### HTML
 
 - [x] Form, 2 inputs for numbers
 - [x] buttons for math operators
 - [x] button to submit, but not clear,
-  - [ ] Area to render answer below
-  - [ ] render operand the history under the current answer
+  - [x] Area to render answer below
+  - [x] render operand the history under the current answer
 - [x] clear button to clear out inputs
 
 ## Server Side
 
 - [x] Handle addition, subtraction, division, and multiplication
   - [x] different functions, assign a way to signify what kind of math
-- [ ] Get request to send calculations
-- [ ] History of calculations
-  - [ ] Send history back to DOM - GET
+- [x] Get request to send calculations
+- [x] History of calculations
+  - [x] Send history back to DOM - GET
 
 ### GET /answer
 

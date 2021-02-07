@@ -13,7 +13,7 @@ app.listen(port, function () {
 
 // store each operation made in in an array
 const operationHistory = [
-  {
+  /*  {
     firstOperand: 12,
     secondOperand: 4,
     operator: '-',
@@ -42,7 +42,7 @@ const operationHistory = [
     secondOperand: 8,
     operator: '+',
     solution: 21,
-  },
+  }, */
 ];
 // calculate data from object sent to server
 // num1 = first operand

@@ -3,7 +3,7 @@ const calculationSubmission = {};
 let currentOperator = '';
 function onReady() {
   console.log('I am so ready');
-  fetchOperations('');
+  // fetchOperations('');
   // click event to choose operator
   $(document).on('click', '.operation-button', operationSelector);
   // click event to submit
