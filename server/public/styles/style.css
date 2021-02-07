@@ -1,6 +1,78 @@
-#button-container {
+:root {
+  font: 1.5em Helvetica, sans-serif;
+  background-color: #772e25;
+  color: #edddd4;
+}
+
+h1 {
+  text-align: center;
+}
+button {
+  cursor: pointer;
+  border-radius: 15%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  outline: none;
+  /* box-shadow: 2px 6px 8px black; */
+}
+
+button:active {
+  transform: translateY(5px);
+}
+/* Classes */
+.number-button {
+  background-color: #197278;
+  color: #edddd4;
+}
+
+.operation-button {
+  background-color: #c44536;
+  color: #edddd4;
+}
+.number-button,
+.operation-button,
+#clear-user-input,
+#submit-calculation,
+#calculator-input {
+  font-size: xx-large;
+  margin: 5px;
+}
+
+/* IDs */
+#app-wrapper {
   display: flex;
-  flex-direction: row;
-  width: 100px;
   flex-wrap: wrap;
+}
+
+#calculator-container {
+  display: grid;
+  width: 400px;
+  margin: auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 4em);
+  padding: 1.5em;
+  border: 2px outset rgb(76, 105, 102);
+  border-radius: 1em;
+  background-color: #283d3b;
+  box-shadow: 5px 10px 18px black;
+}
+
+#calculator-input {
+  grid-area: 1 / 1 / 2 / span 3;
+  margin: 5px;
+  box-shadow: 5px 10px 20px grey inset;
+  padding: 1em;
+}
+
+#output-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 auto;
+  padding: 1em;
+  justify-content: flex-start;
+}
+
+#submit-calculation,
+#clear-user-input {
+  background-color: #edddd4;
 }

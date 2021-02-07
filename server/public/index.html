@@ -10,45 +10,53 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
-    <h1>Server Side Calculator</h1>
-    <input type="text" id="calculator-input" value="" />
-    <button id="clear-user-input">C</button>
-    <div id="button-container">
-      <button class="number-button" data-value="7">7</button>
-      <button class="number-button" data-value="8">8</button>
-      <button class="number-button" data-value="9">9</button>
-      <button class="operation-button" data-operation="addition">+</button>
-      <button class="number-button" data-value="4">4</button>
-      <button class="number-button" data-value="5">5</button>
-      <button class="number-button" data-value="6">6</button>
-      <button class="operation-button" data-operation="subtraction">-</button>
-      <button class="number-button" data-value="1">1</button>
-      <button class="number-button" data-value="2">2</button>
-      <button class="number-button" data-value="3">3</button>
-      <button class="operation-button" data-operation="multiplication">
-        *
-      </button>
-      <button class="number-button" data-value="0">0</button>
-      <button class="number-button" data-value=".">.</button>
+    <h1>Dusty's Server Side Calculator</h1>
+    <div id="app-wrapper">
+      <div id="calculator-container">
+        <input type="text" id="calculator-input" value="" readonly />
+        <button id="clear-user-input">C</button>
+
+        <button class="number-button" data-value="7">7</button>
+        <button class="number-button" data-value="8">8</button>
+        <button class="number-button" data-value="9">9</button>
+        <button class="operation-button" data-operation="addition">+</button>
+        <button class="number-button" data-value="4">4</button>
+        <button class="number-button" data-value="5">5</button>
+        <button class="number-button" data-value="6">6</button>
+        <button class="operation-button" data-operation="subtraction">-</button>
+        <button class="number-button" data-value="1">1</button>
+        <button class="number-button" data-value="2">2</button>
+        <button class="number-button" data-value="3">3</button>
+        <button class="operation-button" data-operation="multiplication">
+          *
+        </button>
+        <button class="number-button" data-value="0">0</button>
+        <button class="number-button" data-value=".">.</button>
+        <button id="submit-calculation">=</button>
+        <button class="operation-button" data-operation="division">/</button>
+      </div>
+
+      <!-- Base Mode -->
+      <!-- 
+      <input id="first-operand-input" type="number" />
+      <button data-operation="addition" class="operation-button">+</button>
+      <button data-operation="subtraction" class="operation-button">-</button>
+      <button data-operation="multiplication" class="operation-button">*</button>
+      <button data-operation="division" class="operation-button">/</button>
+      <input id="second-operand-input" type="number" />
       <button id="submit-calculation">=</button>
-      <button class="operation-button" data-operation="division">/</button>
+      <button id="clear-user-input">C</button> -->
+      <div id="output-wrapper">
+        <h2 id="solution-h2">Solution: <span id="answer-output"></span></h2>
+
+        <ul id="operation-history-output">
+          <!--   Test Data
+        <li>12 - 4 = 8</li>
+        <li>16 * 3 = 45</li>
+        <li>4 + 1 = 5</li>
+        <li>42 / 2 = 21</li> -->
+        </ul>
+      </div>
     </div>
-    <!-- Base Mode -->
-    <!-- <input id="first-operand-input" type="number" />
-    <button data-operation="addition" class="operation-button">+</button>
-    <button data-operation="subtraction" class="operation-button">-</button>
-    <button data-operation="multiplication" class="operation-button">*</button>
-    <button data-operation="division" class="operation-button">/</button>
-    <input id="second-operand-input" type="number" />
-    <button id="submit-calculation">=</button>
-    <button id="clear-user-input">C</button> -->
-    <h2 id="answer-output"></h2>
-    <ul id="operation-history-output">
-      <!--   Test Data
-      <li>12 - 4 = 8</li>
-      <li>16 * 3 = 45</li>
-      <li>4 + 1 = 5</li>
-      <li>42 / 2 = 21</li> -->
-    </ul>
   </body>
 </html>
