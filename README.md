@@ -8,7 +8,7 @@ This app acts as a simple calculator that can take in two number values and an o
 
 ## Screenshot
 
-![base mode interface](images/ServerSideCalculator)
+![base mode interface](images/ServerSideCalculator.jpg)
 
 ## Usage
 
