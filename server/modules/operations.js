@@ -31,6 +31,7 @@ const operationHistory = [
     solution: 21,
   }, */
 ];
+
 // calculate data from object sent to server
 // num1 = first operand
 // num2 = second operand
@@ -50,4 +51,5 @@ function calculateOperation(num1, num2, op) {
     return num1 / num2;
   }
 }
+
 module.exports = { operationHistory, calculateOperation };
